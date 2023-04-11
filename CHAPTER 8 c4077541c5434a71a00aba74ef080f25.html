@@ -1,0 +1,748 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>CHAPTER 8</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="c4077541-c543-4a71-a00a-ba74ef080f25" class="page sans"><header><h1 class="page-title">CHAPTER 8</h1></header><div class="page-body"><h1 id="197a0679-657e-40bd-a264-d7b4bc84c673" class="">CHAPTER 8</h1><h2 id="26cd55bb-bf18-4434-8edf-ee5dfdcb435d" class="">Stream Class Hierarchy for Console Input/Output</h2><h3 id="2d979850-476f-4099-b3bc-df40a0e4d411" class="">What is the stream class hierarchy for console input/output?</h3><p id="495ab731-bb16-498e-9df9-bf518a6b689e" class="">The stream class hierarchy for console input/output consists of the following classes:</p><ul id="e89d5202-9fd0-494c-90ff-dee3ae3a98da" class="bulleted-list"><li style="list-style-type:disc"><strong>ios</strong> - provides the basic I/O services and defines the basic format for all input/output operations.</li></ul><ul id="9fe66f2e-8c67-4dc3-ae40-01eaa1e63acf" class="bulleted-list"><li style="list-style-type:disc"><strong>istream</strong> - provides input operations for reading from input streams.</li></ul><ul id="cc9d77ea-0dc0-449f-aeed-5280e37a66c0" class="bulleted-list"><li style="list-style-type:disc"><strong>ostream</strong> - provides output operations for writing to output streams.</li></ul><ul id="873805b3-1077-4f7a-8862-c3968a28e788" class="bulleted-list"><li style="list-style-type:disc"><strong>iostream</strong> - provides both input and output operations.</li></ul><h3 id="22854fa8-caf5-4815-a2a0-c37d8563d69f" class="">How can we use the stream class hierarchy for console input/output in a program?</h3><p id="76123b0f-68ee-4905-b0a4-d300ec4f089c" class="">We can use the stream class hierarchy for console input/output in a program as follows:</p><pre id="7a5f305b-fa54-4adb-9d26-918ae3fba84c" class="code code-wrap"><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main()
+{
+    int num;
+    cout &lt;&lt; &quot;Enter a number: &quot;;
+    cin &gt;&gt; num;
+    cout &lt;&lt; &quot;The number you entered is: &quot; &lt;&lt; num &lt;&lt; endl;
+    return 0;
+}
+</code></pre><h2 id="ce963494-abce-48fe-b326-a947bbb04e4e" class="">Unformatted Input/Output</h2><h3 id="cdf26db5-f365-4dc0-864f-74639da0a1f4" class="">What is unformatted input/output?</h3><p id="814ec7f6-04c4-41e9-b542-33483608dc1c" class="">Unformatted input/output refers to the input/output operations that do not involve any formatting.</p><h3 id="761ef473-2d29-46fa-b1c8-45821c2c197a" class="">How can we perform unformatted input/output in C++?</h3><p id="255c8769-077f-447f-a74d-f27c325f4884" class="">We can perform unformatted input/output in C++ using the following functions:</p><ul id="474dabcc-54c6-4753-a2b2-eb53e17e5d20" class="bulleted-list"><li style="list-style-type:disc"><strong>get()</strong> - reads a single character from the input stream.</li></ul><ul id="015f87a2-af4f-4248-8b66-204e255f8aa1" class="bulleted-list"><li style="list-style-type:disc"><strong>put()</strong> - writes a single character to the output stream.</li></ul><ul id="25216e65-eeec-4caa-81fe-7bf724166688" class="bulleted-list"><li style="list-style-type:disc"><strong>getline()</strong> - reads a line of text from the input stream.</li></ul><ul id="d7d211aa-6640-4605-b5bb-37c7df3a4597" class="bulleted-list"><li style="list-style-type:disc"><strong>write()</strong> - writes a block of data to the output stream.</li></ul><h2 id="eec53f0d-5498-47c0-8bea-d062ec1ae801" class="">Formatted Input/Output with ios Member Functions</h2><h3 id="653cade8-9954-4a9b-a682-74e5f7f74374" class="">What is formatted input/output with ios member functions?</h3><p id="152f4ec7-6931-4dc0-b932-3eff271cd466" class="">Formatted input/output with ios member functions refers to the input/output operations that involve formatting.</p><h3 id="2dd0aa2f-0f38-4aa9-969d-6031da8a8bd0" class="">How can we perform formatted input/output with ios member functions in C++?</h3><p id="1c9b2bb0-ca25-4560-9ce7-beb4f879fea5" class="">We can perform formatted input/output with ios member functions in C++ using the following functions:</p><ul id="80e35544-62b0-437e-a07e-fea12255f4d3" class="bulleted-list"><li style="list-style-type:disc"><strong>setw()</strong> - sets the field width for the next output operation.</li></ul><ul id="e1392924-eee0-43b7-ae92-1a20cd4dcf27" class="bulleted-list"><li style="list-style-type:disc"><strong>setprecision()</strong> - sets the precision for floating-point output.</li></ul><ul id="b55bffe1-840b-4570-beba-0eb92e03a016" class="bulleted-list"><li style="list-style-type:disc"><strong>setiosflags()</strong> - sets the format flags for the output stream.</li></ul><ul id="4964e719-4855-4ffc-95f6-d5f73f4e5e66" class="bulleted-list"><li style="list-style-type:disc"><strong>resetiosflags()</strong> - resets the format flags for the output stream.</li></ul><h2 id="626e562f-f8ff-4c4c-a5bb-e5aa3277c031" class="">Formatting with Manipulators</h2><h3 id="c60c6d63-7809-4651-a18a-1c78690d2d8d" class="">What is formatting with manipulators?</h3><p id="d7bbb160-cca1-46eb-876d-08fcb61b6933" class="">Formatting with manipulators refers to the use of manipulators to control the format of the output.</p><h3 id="5e9f53dc-357e-4e61-8f01-d0b348c478d3" class="">How can we perform formatting with manipulators in C++?</h3><p id="558dcb6a-6f0f-4820-9464-ff458d379ef0" class="">We can perform formatting with manipulators in C++ using the following manipulators:</p><ul id="5f853f5a-1721-4635-8d91-ea6591e3fdce" class="bulleted-list"><li style="list-style-type:disc"><strong>endl</strong> - inserts a newline character into the output stream and flushes the stream.</li></ul><ul id="e2a2ea29-d49c-4457-90d3-aaeaef1cb76f" class="bulleted-list"><li style="list-style-type:disc"><strong>setw()</strong> - sets the field width for the next output operation.</li></ul><ul id="675321d4-139e-44e7-81ab-2389ab08dd4c" class="bulleted-list"><li style="list-style-type:disc"><strong>setprecision()</strong> - sets the precision for floating-point output.</li></ul><ul id="4609ac9c-311a-4e6f-a67e-3591feb886cc" class="bulleted-list"><li style="list-style-type:disc"><strong>setiosflags()</strong> - sets the format flags for the output stream.</li></ul><ul id="4eb1b04d-b366-4b00-8dbc-62f4898d5318" class="bulleted-list"><li style="list-style-type:disc"><strong>resetiosflags()</strong> - resets the format flags for the output stream.</li></ul><h2 id="35248643-b31b-4b37-8b6c-648c1bcf8dd3" class="">Stream Operator Overloading</h2><h3 id="37b164d2-4803-45b4-b910-479a3b0440aa" class="">What is stream operator overloading?</h3><p id="8da2a959-7b0b-4b57-865b-9376b7601693" class="">Stream operator overloading refers to the overloading of the &lt;&lt; and &gt;&gt; operators for input/output operations.</p><h3 id="9524008e-0a8e-49df-a493-633800789dac" class="">How can we overload stream operators in C++?</h3><p id="5bdd0afb-4114-4e8f-9077-87ba0bd83800" class="">We can overload stream operators in C++ using the following syntax:</p><pre id="f30a6031-2404-4377-a3b5-54c1b900a426" class="code code-wrap"><code>ostream&amp; operator&lt;&lt;(ostream&amp; os, const MyClass&amp; obj)
+{
+    os &lt;&lt; obj.data;
+    return os;
+}
+
+istream&amp; operator&gt;&gt;(istream&amp; is, MyClass&amp; obj)
+{
+    is &gt;&gt; obj.data;
+    return is;
+}
+</code></pre><h2 id="4b692786-d062-4781-9738-404ffc78e359" class="">File Input/Output with Streams</h2><h3 id="e7fa772d-62e4-4d87-9412-4040747a7c83" class="">What is file input/output with streams?</h3><p id="591bd667-b5cc-4f2a-9c83-94fba0d19f68" class="">File input/output with streams refers to the input/output operations that involve reading from and writing to files.</p><h3 id="be04d236-f7c0-41b3-bdbe-45f551fbb404" class="">How can we perform file input/output with streams in C++?</h3><p id="a5fc1b2e-99b7-4524-89d3-21a085d6ef78" class="">We can perform file input/output with streams in C++ using the following classes:</p><ul id="4523ef8e-cb57-4e2b-aa97-4876803da613" class="bulleted-list"><li style="list-style-type:disc"><strong>ifstream</strong> - provides input operations for reading from input files.</li></ul><ul id="e11a02cb-c184-4998-940f-76d25e3976df" class="bulleted-list"><li style="list-style-type:disc"><strong>ofstream</strong> - provides output operations for writing to output files.</li></ul><ul id="7708e35c-1115-4cdd-b920-6a5fd7403e2e" class="bulleted-list"><li style="list-style-type:disc"><strong>fstream</strong> - provides both input and output operations for files.</li></ul><h2 id="7df20600-b7fe-4b25-9815-1f839ae0997b" class="">Opening and Closing Files</h2><h3 id="04072b51-e6da-445d-bb99-974635095832" class="">How can we open and close files in C++?</h3><p id="8b5f4b18-7d88-47c0-9fd6-a030df2b1755" class="">We can open and close files in C++ using the following functions:</p><ul id="b4fc9864-7d9d-45cb-85b7-66c40c46326d" class="bulleted-list"><li style="list-style-type:disc"><strong>open()</strong> - opens a file.</li></ul><ul id="a96235b7-0fb4-428c-a97c-02836094836f" class="bulleted-list"><li style="list-style-type:disc"><strong>close()</strong> - closes a file.</li></ul><p id="d24b5ba0-04b2-45d8-98fc-337f6da0e7b9" class="">For example:</p><pre id="3cacd553-3121-4504-b9aa-3f8d331d55e5" class="code code-wrap"><code>#include &lt;fstream&gt;
+using namespace std;
+
+int main()
+{
+    ofstream myfile;
+    myfile.open(&quot;example.txt&quot;);
+    myfile &lt;&lt; &quot;Writing this to a file.\\n&quot;;
+    myfile.close();
+    return 0;
+}
+</code></pre><h2 id="f9e7c98f-4e64-44be-b8cf-97bd78ff0a3c" class="">Read/Write from File</h2><h3 id="b402a5f3-7608-4811-bf1c-29bd8f21f3e6" class="">How can we read from and write to a file in C++?</h3><p id="0131ca28-fe40-4af7-92f9-675893416efe" class="">We can read from and write to a file in C++ using the following functions:</p><ul id="d0c3cc1e-e323-4df9-a830-13e62cf7587e" class="bulleted-list"><li style="list-style-type:disc"><strong>getline()</strong> - reads a line of text from the input stream.</li></ul><ul id="78b51df2-05a1-46b9-8aaf-8f1117c41fc6" class="bulleted-list"><li style="list-style-type:disc"><strong>write()</strong> - writes a block of data to the output stream.</li></ul><p id="dcbc06ff-54b9-40b9-ab5e-8d20fadb0fc6" class="">For example:</p><pre id="16004dd2-ad05-48ff-83ff-31ca7f79b00c" class="code code-wrap"><code>#include &lt;fstream&gt;
+using namespace std;
+
+int main()
+{
+    ifstream myfile;
+    myfile.open(&quot;example.txt&quot;);
+    string line;
+    while (getline(myfile, line))
+    {
+        cout &lt;&lt; line &lt;&lt; endl;
+    }
+    myfile.close();
+    return 0;
+}
+</code></pre><h2 id="a60b04d0-0c4e-4562-9a93-fd8010171334" class="">File Access Pointers and their Manipulators</h2><h3 id="5a77b480-a33d-4669-af0b-2b80cf415903" class="">What are file access pointers and their manipulators?</h3><p id="b412ccf2-2bc9-45c4-b4a2-1e34038c3983" class="">File access pointers and their manipulators are used to control the position of the file access pointer in a file.</p><h3 id="d84a34e9-649f-4e67-b8ce-5bdc8be3fed2" class="">How can we use file access pointers and their manipulators in C++?</h3><p id="26bd4fce-ad4b-4e05-a11b-b22562c9311d" class="">We can use file access pointers and their manipulators in C++ using the following functions:</p><ul id="20694026-b89f-4f98-92c7-714fc180b5ef" class="bulleted-list"><li style="list-style-type:disc"><strong>seekg()</strong> - moves the input file access pointer to a specific position in the file.</li></ul><ul id="31db40a1-acdf-4a67-a336-903b3e6ba7dc" class="bulleted-list"><li style="list-style-type:disc"><strong>seekp()</strong> - moves the output file access pointer to a specific position in the file.</li></ul><ul id="854cb2f2-238b-4c45-85b2-85c88983727d" class="bulleted-list"><li style="list-style-type:disc"><strong>tellg()</strong> - returns the current position of the input file access pointer.</li></ul><ul id="7c65f54e-7004-4417-b699-097c2db6f7d2" class="bulleted-list"><li style="list-style-type:disc"><strong>tellp()</strong> - returns the current position of the output file access pointer.</li></ul><h2 id="425a3f22-1c60-4138-9b24-d09cd2d0b317" class="">Sequential and Random Access to File</h2><h3 id="0013847f-6594-4503-ba19-63503bdd1aed" class="">What is sequential access to a file?</h3><p id="2fe8adcd-cda4-472c-a788-bbc38dc6af6f" class="">Sequential access to a file refers to reading or writing data in a linear fashion, from beginning to end.</p><h3 id="8d7c47b4-23ff-4134-bde7-26884bc06eeb" class="">How can we perform sequential access to a file in C++?</h3><p id="ba0339b4-83fa-4cb2-bc1a-22538ee436d2" class="">We can perform sequential access to a file in C++ using the following functions:</p><ul id="77e7b4cc-004c-40b9-9a61-4c2d7919e82c" class="bulleted-list"><li style="list-style-type:disc"><strong>getline()</strong> - reads a line of text from the input stream.</li></ul><ul id="dc39eac5-f552-41a1-a30a-283386fbb33a" class="bulleted-list"><li style="list-style-type:disc"><strong>write()</strong> - writes a block of data to the output stream.</li></ul><h3 id="54656f8a-17c7-4b7e-9c07-6bc2f86ce17c" class="">What is random access to a file?</h3><p id="630aefc1-d2f9-4b8e-970d-494e3f2e1072" class="">Random access to a file refers to reading or writing data at any position in the file.</p><h3 id="2b07786d-c761-4bd2-8f14-1c2338121717" class="">How can we perform random access to a file in C++?</h3><p id="1c40e866-469b-4667-9e96-35c29ffc7471" class="">We can perform random access to a file in C++ using the following functions:</p><ul id="c77cffe2-cd4e-43dd-ba49-7fa60ec2911e" class="bulleted-list"><li style="list-style-type:disc"><strong>seekg()</strong> - moves the input file access pointer to a specific position in the file.</li></ul><ul id="2a282221-4fe5-41f2-a245-00097c2e81ee" class="bulleted-list"><li style="list-style-type:disc"><strong>seekp()</strong> - moves the output file access pointer to a specific position in the file.</li></ul><h2 id="5902cc7c-cd2f-4554-bb33-26d4e4e9ff9a" class="">Testing Errors during File Operations</h2><h3 id="c195c891-fd6e-4a8b-b9e3-076743c6359c" class="">How can we test for errors during file operations in C++?</h3><p id="923ecd50-828d-40d9-a2c7-2e43affcacee" class="">We can test for errors during file operations in C++ using the following functions:</p><ul id="6f0ba056-ba98-4691-8564-7ace53391b40" class="bulleted-list"><li style="list-style-type:disc"><strong>fail()</strong> - returns true if an error occurred during the last input/output operation.</li></ul><ul id="a347bd20-9005-48f2-a23d-6f68d4f75c1f" class="bulleted-list"><li style="list-style-type:disc"><strong>bad()</strong> - returns true if the stream is in a bad state.</li></ul><ul id="afc881fc-0aea-4ce4-b5a9-43113620e0f9" class="bulleted-list"><li style="list-style-type:disc"><strong>eof()</strong> - returns true if the end of the file has been reached.</li></ul><ul id="4918f7ea-0fe9-46df-8864-eaef644e7700" class="bulleted-list"><li style="list-style-type:disc"><strong>good()</strong> - returns true if the stream is in a good state.</li></ul><p id="956a1773-deb3-4a85-86f4-973e7a9ae7fb" class="">For example:</p><pre id="2b42af3f-3f3c-46de-bd38-5b9c2980d93b" class="code code-wrap"><code>#include &lt;fstream&gt;
+using namespace std;
+
+int main()
+{
+    ifstream myfile;
+    myfile.open(&quot;example.txt&quot;);
+    if (!myfile.is_open())
+    {
+        cout &lt;&lt; &quot;Error opening file.&quot; &lt;&lt; endl;
+    }
+    else
+    {
+        string line;
+        while (getline(myfile, line))
+        {
+            cout &lt;&lt; line &lt;&lt; endl;
+        }
+        if (myfile.bad())
+        {
+            cout &lt;&lt; &quot;Error reading file.&quot; &lt;&lt; endl;
+        }
+        else if (myfile.eof())
+        {
+            cout &lt;&lt; &quot;End of file reached.&quot; &lt;&lt; endl;
+        }
+        myfile.close();
+    }
+    return 0;
+}
+</code></pre><p id="6624d1f8-d9be-460f-90c7-a5eb5077f6e4" class="">
+</p></div></article></body></html>

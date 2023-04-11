@@ -1,0 +1,735 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>CHAPTER 7</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="8d4df59a-dd18-4872-a727-c0636d72737f" class="page sans"><header><h1 class="page-title">CHAPTER 7</h1></header><div class="page-body"><h2 id="cefd251a-9a33-403b-b7d2-cb570dd320e0" class="">Function Templates</h2><ol type="1" id="f0d1063a-8e5c-4644-b660-dd06ed39f9e9" class="numbered-list" start="1"><li>What is a function template in C++?</li></ol><p id="0789d79e-dbf8-4e5d-a164-a67d94a334d1" class="">A function template is a blueprint for creating a family of functions with a single definition. It allows you to define a function once and use it with different data types.</p><p id="a0ef8545-584b-469b-a185-7a1af977558d" class="">Example:</p><pre id="b7a82340-468b-4870-b533-8ca12bc67435" class="code code-wrap"><code>template&lt;typename T&gt;
+T max(T a, T b) {
+    return (a &gt; b) ? a : b;
+}
+</code></pre><ol type="1" id="b2a41da6-59b2-4592-8b0a-66d411180b2d" class="numbered-list" start="1"><li>How do you call a function template in C++?</li></ol><p id="492fdb10-1a8c-4365-ab78-4d3f9a3fda74" class="">You can call a function template by specifying the data types inside angle brackets when calling the function.</p><p id="d3b4e267-0673-48ab-9cf4-18745530e70d" class="">Example:</p><pre id="279533cb-1f3c-461b-9bcb-600f394d249e" class="code code-wrap"><code>int x = 5, y = 10;
+cout &lt;&lt; max&lt;int&gt;(x, y) &lt;&lt; endl;
+</code></pre><h2 id="4d59d5c7-646e-49b7-86f8-5f7593fcee7f" class="">Function Templates with Multiple Arguments</h2><ol type="1" id="cb24b319-0eca-4613-a5c2-08644deb2c24" class="numbered-list" start="1"><li>How do you create a function template with multiple arguments in C++?</li></ol><p id="18e23c37-7452-45f9-b43e-9baa2051d3a8" class="">You can create a function template with multiple arguments by specifying the data types inside angle brackets for each argument.</p><p id="300f89fc-af86-4d20-ab6f-65b53603216e" class="">Example:</p><pre id="e83d0133-acf9-4721-b03e-4910095327c6" class="code code-wrap"><code>template&lt;typename T1, typename T2&gt;
+void print(T1 a, T2 b) {
+    cout &lt;&lt; a &lt;&lt; &quot; &quot; &lt;&lt; b &lt;&lt; endl;
+}
+</code></pre><ol type="1" id="6830b105-5c5a-4fcf-b1a3-d776a2b072fa" class="numbered-list" start="1"><li>How do you call a function template with multiple arguments in C++?</li></ol><p id="5f6c222e-aa75-4535-8cae-30d8aa333fad" class="">You can call a function template with multiple arguments by specifying the data types inside angle brackets for each argument when calling the function.</p><p id="6ddc2439-690b-4e41-8a20-3c569e57ba9f" class="">Example:</p><pre id="f698b0c4-f4ce-42ea-b329-86cb44cc34f9" class="code code-wrap"><code>int x = 5;
+double y = 10.5;
+print&lt;int, double&gt;(x, y);
+</code></pre><h2 id="1da4ea54-d92f-45b7-9385-9a6c4e7433db" class="">Class Templates</h2><ol type="1" id="e0a015ad-1d06-489d-92b6-e6a4c4b3aa1a" class="numbered-list" start="1"><li>What is a class template in C++?</li></ol><p id="e61dc972-9a11-4c3d-a504-79d7ba81fa43" class="">A class template is a blueprint for creating a family of classes with a single definition. It allows you to define a class once and use it with different data types.</p><p id="f7b49559-04ac-4504-9f0d-65dbf64bce99" class="">Example:</p><pre id="82069c94-a6bd-4bdb-be0f-6a97890fb578" class="code code-wrap"><code>template&lt;typename T&gt;
+class Stack {
+private:
+    T* data;
+    int size;
+public:
+    Stack(int max_size) {
+        data = new T[max_size];
+        size = 0;
+    }
+    void push(T value) {
+        data[size++] = value;
+    }
+    T pop() {
+        return data[--size];
+    }
+};
+</code></pre><ol type="1" id="8a8fa7ad-efb6-4138-bf77-f709aabd4717" class="numbered-list" start="1"><li>How do you create an object of a class template in C++?</li></ol><p id="2c7cb0c3-d36b-4c5a-b142-3a659bd02056" class="">You can create an object of a class template by specifying the data type inside angle brackets when creating the object.</p><p id="5aedc15c-df8d-448f-bd78-837f04faf394" class="">Example:</p><pre id="d07e091e-76e1-47e8-b9ab-938805c569ae" class="code code-wrap"><code>Stack&lt;int&gt; s(10);
+s.push(5);
+s.push(10);
+cout &lt;&lt; s.pop() &lt;&lt; endl;
+</code></pre><h2 id="64c1f425-acb0-4236-8b96-40a73ccd62c8" class="">Templates and Inheritance</h2><ol type="1" id="30430618-109e-4f80-b0fa-69c60210e1a2" class="numbered-list" start="1"><li>How do you use templates with inheritance in C++?</li></ol><p id="fc002d03-6457-4263-93bc-c2a539802dcd" class="">You can use templates with inheritance by creating a derived class from a base class template and specifying the data type inside angle brackets.</p><p id="5e6a7cd6-28f0-4353-821f-00188cda3696" class="">Example:</p><pre id="2c59afab-d04d-4df9-a986-cdc82b5143e7" class="code code-wrap"><code>template&lt;typename T&gt;
+class Base {
+public:
+    virtual void print(T value) = 0;
+};
+
+template&lt;typename T&gt;
+class Derived : public Base&lt;T&gt; {
+public:
+    void print(T value) {
+        cout &lt;&lt; value &lt;&lt; endl;
+    }
+};
+</code></pre><ol type="1" id="b086aa87-fae5-4e5f-bd04-61fe74a85c3f" class="numbered-list" start="1"><li>How do you create an object of a derived class template in C++?</li></ol><p id="4cbcbfd6-117a-4395-8a51-40f3d41e472f" class="">You can create an object of a derived class template by specifying the data type inside angle brackets when creating the object.</p><p id="0b7ae018-be33-4c1d-81b2-c118fbb5d78d" class="">Example:</p><pre id="902ab36e-ca74-4d1a-af79-932d3c80cd65" class="code code-wrap"><code>Derived&lt;int&gt; d;
+d.print(5);
+</code></pre><h2 id="227b58ec-1236-4fc6-bebe-b92e9299d27e" class="">Exceptional Handling (Try, Throw and Catch)</h2><ol type="1" id="66ccef70-6817-4bb3-917a-7dfffca336fd" class="numbered-list" start="1"><li>What is exceptional handling in C++?</li></ol><p id="36137da2-b5b2-4bea-aa29-704ad07d094a" class="">Exceptional handling is a mechanism in C++ that allows you to handle runtime errors in a program. It involves three keywords: try, throw and catch.</p><ol type="1" id="1c96c619-6a60-4c63-bd5e-d3e0ebba65a7" class="numbered-list" start="1"><li>How do you use the try keyword in C++?</li></ol><p id="2eb1cbc5-f342-4ab1-afd9-e204195beb1c" class="">The try keyword is used to enclose the code that may throw an exception.</p><p id="b255408d-e7ad-4a5a-8ef4-2b065eb4f26f" class="">Example:</p><pre id="f8ae67dc-e10e-46a7-8663-2d1bfa607577" class="code code-wrap"><code>try {
+    int x = 10 / 0;
+} catch (...) {
+    cout &lt;&lt; &quot;Error: Division by zero&quot; &lt;&lt; endl;
+}
+</code></pre><ol type="1" id="6f805a0a-a8c4-48e0-91ac-32a8cc43b0a4" class="numbered-list" start="1"><li>How do you use the throw keyword in C++?</li></ol><p id="87f8c08d-2fbd-4b9b-8bc6-9ed9db30b951" class="">The throw keyword is used to throw an exception.</p><p id="26fa7bbf-1727-4757-83b3-7c49af28b17b" class="">Example:</p><pre id="a198de8c-c45b-4988-a431-a9dad0697861" class="code code-wrap"><code>void divide(int x, int y) {
+    if (y == 0) {
+        throw &quot;Division by zero&quot;;
+    }
+    cout &lt;&lt; x / y &lt;&lt; endl;
+}
+</code></pre><ol type="1" id="0f507688-87f6-4539-a4c2-905875e457f2" class="numbered-list" start="1"><li>How do you use the catch keyword in C++?</li></ol><p id="6f77abed-3e2b-4603-b489-cb6821ad6bcb" class="">The catch keyword is used to catch an exception and handle it.</p><p id="8ceeac37-34d7-4a35-b727-03444aacf6b3" class="">Example:</p><pre id="8f45c335-983a-4353-b5d5-b705fbc11bae" class="code code-wrap"><code>try {
+    divide(10, 0);
+} catch (const char* msg) {
+    cout &lt;&lt; &quot;Error: &quot; &lt;&lt; msg &lt;&lt; endl;
+}
+</code></pre><h2 id="5904de20-6edd-45f8-a8a6-a5cdf798146f" class="">Use of Exceptional Handling</h2><ol type="1" id="98b9b43c-a749-41cb-8157-a439c8b155a6" class="numbered-list" start="1"><li>Why is exceptional handling important in C++ programming?</li></ol><p id="5f9a955c-e724-4df7-80a9-f1b77fa71419" class="">Exceptional handling is important in C++ programming because it allows you to handle runtime errors in a program and prevent it from crashing. It also provides a way to gracefully exit a program in case of an error.</p><ol type="1" id="0eaf286f-8cbe-4e93-ab8a-f58e056fcbd1" class="numbered-list" start="1"><li>What are some common exceptions that can occur in a C++ program?</li></ol><p id="93418991-02a8-4db6-a156-a36efa893422" class="">Some common exceptions that can occur in a C++ program include division by zero, out of memory, null pointer access, file not found, and invalid input.</p><ol type="1" id="5fb1fb6f-bd7e-4bcc-b155-61da73a61e31" class="numbered-list" start="1"><li>How can you use exceptional handling to improve the reliability of a C++ program?</li></ol><p id="ec47b5b5-f35b-40e8-8ba8-93e8116be336" class="">You can use exceptional handling to improve the reliability of a C++ program by catching exceptions and displaying informative error messages to the user. This allows the user to understand what went wrong and take appropriate action.</p><p id="117a3329-45b1-44dc-a41d-56121b630f6d" class="">
+</p></div></article></body></html>

@@ -1,0 +1,788 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>CHAPTER 3</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="e83103e4-cc74-4604-bcfd-4c756f76558d" class="page sans"><header><h1 class="page-title">CHAPTER 3</h1></header><div class="page-body"><h2 id="067b0418-2c55-4541-9cb4-d55970dcd5aa" class="">A Simple Class and Object</h2><p id="602eb0df-50a5-4989-8275-bfab2ed6b38d" class=""><strong>Q: What is a class in programming?</strong></p><p id="5d3797a6-f5e9-4bd8-aa8c-14c1de251242" class="">A: A class is a blueprint or template for creating objects that define a set of attributes (data members) and behaviors (member functions) that the objects of that class possess.</p><p id="a5d224ad-2db1-4f13-8fe5-add821c208b7" class=""><strong>Example:</strong></p><pre id="99a768c7-d3f2-4baa-9331-903e453aa79a" class="code code-wrap"><code>class Car {
+   public:
+      string brand;
+      string model;
+      int year;
+};
+
+Car myCar; // Object of class Car
+</code></pre><p id="1583de6c-5caf-4cfe-b9ab-636d07e776e2" class=""><strong>Q: What is an object in programming?</strong></p><p id="68847e6c-4cad-43f0-adc6-be119c964a19" class="">A: An object is an instance of a class that has its own set of attributes and behaviors.</p><p id="a839a6a9-6313-47f6-bc64-5ab6b986f9b8" class=""><strong>Example:</strong></p><pre id="b0f0ee44-691b-4533-8597-2fd7ffb2e893" class="code code-wrap"><code>myCar.brand = &quot;Ford&quot;;
+myCar.model = &quot;Mustang&quot;;
+myCar.year = 2021;
+</code></pre><h2 id="44ae14ac-d297-4588-bede-821f76393094" class="">Accessing members of class</h2><p id="18931466-f543-45df-9cb0-8556676c1934" class=""><strong>Q: How can you access the data members of a class?</strong></p><p id="8d39ab43-4bf4-4a39-b1d3-6cc0ea70554c" class="">A: You can access the data members of a class by using the dot (.) operator.</p><p id="6a97d471-51a5-4b41-b3be-1493bfa3a74c" class=""><strong>Example:</strong></p><pre id="faa802f3-4ade-42fa-9794-c9290cc98840" class="code code-wrap"><code>cout &lt;&lt; &quot;Brand: &quot; &lt;&lt; myCar.brand &lt;&lt; endl;
+cout &lt;&lt; &quot;Model: &quot; &lt;&lt; myCar.model &lt;&lt; endl;
+cout &lt;&lt; &quot;Year: &quot; &lt;&lt; myCar.year &lt;&lt; endl;
+</code></pre><h2 id="2d7f0859-eb8b-4f23-b2ef-67b0f88a9a02" class="">Initialization of class objects: (Constructor, Destructor)</h2><p id="c015a779-6e24-4eca-a4a0-1faa6deb44ed" class=""><strong>Q: What is a constructor in programming?</strong></p><p id="c9219728-67c3-4875-9192-4a67e551abbd" class="">A: A constructor is a special member function of a class that is automatically called when an object of that class is created. It is used to initialize the data members of the object.</p><p id="4c5f2b25-b005-4370-aed9-941aaf884dd3" class=""><strong>Example:</strong></p><pre id="b792e125-6710-46cf-913c-21f9e52f0bba" class="code code-wrap"><code>class Car {
+   public:
+      string brand;
+      string model;
+      int year;
+
+      Car() {  // Default Constructor
+         brand = &quot;&quot;;
+         model = &quot;&quot;;
+         year = 0;
+      }
+
+      Car(string b, string m, int y) {  // Parameterized Constructor
+         brand = b;
+         model = m;
+         year = y;
+      }
+
+      Car(const Car &amp;c) {  // Copy Constructor
+         brand = c.brand;
+         model = c.model;
+         year = c.year;
+      }
+
+      ~Car() {  // Destructor
+         cout &lt;&lt; &quot;Object is being deleted&quot; &lt;&lt; endl;
+      }
+};
+
+Car myCar; // Default Constructor
+Car myCar2(&quot;Ford&quot;, &quot;Mustang&quot;, 2021); // Parameterized Constructor
+Car myCar3 = myCar2; // Copy Constructor
+</code></pre><p id="fcec4de3-62ca-496d-8d30-2c874d4716f7" class=""><strong>Q: What is a destructor in programming?</strong></p><p id="3c64ded6-c97d-48c4-b2ae-244b2bb3e929" class="">A: A destructor is a special member function of a class that is automatically called when an object of that class is destroyed. It is used to free the memory allocated to the object.</p><p id="133b2325-cd65-4d4e-9227-43b6c7dfeba0" class=""><strong>Example:</strong></p><pre id="f0176433-9ea4-4289-819e-4d9edaba6370" class="code code-wrap"><code>{
+   Car myCar4(&quot;Honda&quot;, &quot;Civic&quot;, 2022);
+} // Destructor is called here
+</code></pre><h2 id="a26d3856-67f2-47c6-92d6-a62337c46355" class="">Default Constructor</h2><p id="fd1f5507-42d4-4f07-9f99-972f8dad7f4d" class=""><strong>Q: What is a default constructor?</strong></p><p id="9cccfc33-3fda-44c5-8897-6371f0e3d320" class="">A: A default constructor is a constructor that takes no arguments. It is used to create an object with default values.</p><p id="e88807be-7862-475b-8f18-a8669c3d6734" class=""><strong>Example:</strong></p><pre id="c9cdcc4b-a345-44af-9c0c-aa0485709cd8" class="code code-wrap"><code>Car myCar; // Default Constructor
+</code></pre><h2 id="ae59f8e2-98dd-4e32-8baf-4fa63254c0b2" class="">Parameterized Constructor</h2><p id="dbe3c10f-56a5-446e-978f-5adbb4eb111a" class=""><strong>Q: What is a parameterized constructor?</strong></p><p id="110f13f0-7d62-462a-8edc-20a77bc3735e" class="">A: A parameterized constructor is a constructor that takes one or more arguments. It is used to create an object with user-defined values.</p><p id="4de53aa9-2054-4ba4-b519-90769b54bcf5" class=""><strong>Example:</strong></p><pre id="5133e447-c3ed-410d-a8e4-260452e7f198" class="code code-wrap"><code>Car myCar2(&quot;Ford&quot;, &quot;Mustang&quot;, 2021); // Parameterized Constructor
+</code></pre><h2 id="40064ae3-f968-4d8f-94a7-5a5dac8799e5" class="">Copy Constructor</h2><p id="67d4d250-b0ac-47af-83ff-2734d337f8ab" class=""><strong>Q: What is a copy constructor?</strong></p><p id="1ca58018-29d0-452a-9ce3-341a40d51e74" class="">A: A copy constructor is a constructor that creates a new object by copying the values of an existing object. It is used to create a new object with the same values as an existing object.</p><p id="aab3eedf-1234-4f61-bff2-1a8b30018212" class=""><strong>Example:</strong></p><pre id="e468ac5a-419b-4f41-aaae-9f865dc67748" class="code code-wrap"><code>Car myCar3 = myCar2; // Copy Constructor
+</code></pre><h2 id="66080f41-d713-4eb5-ad29-253ee045f56d" class="">The Default Copy Constructor</h2><p id="feec2ff4-8ec1-4260-a092-083f653034fa" class=""><strong>Q: What is the default copy constructor?</strong></p><p id="b6e7cfa7-35f5-4b44-9510-3faea403756c" class="">A: The default copy constructor is a constructor that is automatically generated by the compiler if no copy constructor is defined explicitly. It performs a shallow copy of the object.</p><p id="33292ceb-21cc-45f6-a075-8b5198cbbf73" class=""><strong>Example:</strong></p><pre id="f5b68832-7aa3-4b73-aad1-eb9c7db4e19f" class="code code-wrap"><code>class Person {
+   public:
+      string name;
+      int age;
+};
+
+Person person1;
+person1.name = &quot;John&quot;;
+person1.age = 30;
+
+Person person2 = person1; // Default Copy Constructor
+</code></pre><h2 id="054547dc-4ff9-4260-8002-5331975c1ee6" class="">Objects as Function Arguments</h2><p id="0191a0c7-51ba-4574-95b7-7bc6a9816840" class=""><strong>Q: Can objects be used as function arguments?</strong></p><p id="06cd264d-b936-4ae2-b5bd-ef25d345b123" class="">A: Yes, objects can be used as function arguments.</p><p id="e99b99c7-2547-4ae4-bc86-4e0ac037923e" class=""><strong>Example:</strong></p><pre id="6342a32a-8007-4acc-bed0-63ff457eac39" class="code code-wrap"><code>void printCarDetails(Car c) {
+   cout &lt;&lt; &quot;Brand: &quot; &lt;&lt; c.brand &lt;&lt; endl;
+   cout &lt;&lt; &quot;Model: &quot; &lt;&lt; c.model &lt;&lt; endl;
+   cout &lt;&lt; &quot;Year: &quot; &lt;&lt; c.year &lt;&lt; endl;
+}
+
+printCarDetails(myCar2); // Object used as function argument
+</code></pre><h2 id="efd71255-70fd-44a4-a041-2e4c1f1601b2" class="">Returning Objects from Functions</h2><p id="55ac97ee-1944-4982-8683-0056c78617b6" class=""><strong>Q: Can objects be returned from a function?</strong></p><p id="202c28a0-47b3-46d7-b5e9-ffc1f95dd14c" class="">A: Yes, objects can be returned from a function.</p><p id="f99f1fab-a91e-4b1c-8895-bf8afcf38302" class=""><strong>Example:</strong></p><pre id="5004dfd9-171b-4964-a264-fe926fc70f39" class="code code-wrap"><code>Car createCar(string b, string m, int y) {
+   Car c(b, m, y);
+   return c;
+}
+
+Car myCar5 = createCar(&quot;Toyota&quot;, &quot;Corolla&quot;, 2021); // Object returned from function
+</code></pre><h2 id="0d80e0dc-282a-4710-9721-1f366814ad77" class="">Structures and Classes</h2><p id="4f46c7b6-e19e-480d-a268-071bf1aab07f" class=""><strong>Q: What is the difference between a structure and a class in programming?</strong></p><p id="25dc490a-2f56-48e6-9d3a-a5878455b065" class="">A: In C++, a structure is a collection of variables of different data types that are grouped together under a single name. A class is a user-defined data type that contains variables and functions.</p><p id="9c98183d-3e1e-4e68-9474-443eb7223073" class=""><strong>Example:</strong></p><pre id="87872b1d-65a8-4ee5-ae09-f1730c016e0c" class="code code-wrap"><code>struct Point {
+   int x;
+   int y;
+};
+
+class Rectangle {
+   public:
+      int length;
+      int width;
+
+      int area() {
+         return length * width;
+      }
+};
+</code></pre><h2 id="3dde0179-21ad-49f5-b58d-1c85df9c0e31" class="">Memory allocation for Objects</h2><p id="76280012-af11-4ba0-b2ee-7880afaca0d2" class=""><strong>Q: How is memory allocated for objects in programming?</strong></p><p id="2257a127-8af2-44ed-b0c7-54af0029ac6c" class="">A: Memory is allocated for objects using the new operator. The new operator returns a pointer to the memory location of the object.</p><p id="f432b745-7601-487e-a46a-ce107b042c7d" class=""><strong>Example:</strong></p><pre id="1707c422-6971-4023-b554-a6c929829743" class="code code-wrap"><code>Car *myCar6 = new Car(&quot;Nissan&quot;, &quot;Sentra&quot;, 2022); // Memory allocated for object using new operator
+</code></pre><h2 id="25e416bb-2208-45c8-812e-778399bf4200" class="">Static members</h2><p id="4a07b102-f3a0-44c6-934d-134e23c21467" class=""><strong>Q: What are static members in programming?</strong></p><p id="3c988f74-255a-47c2-ab71-85d2075aafd9" class="">A: Static members are class members that are shared by all objects of the class. They are initialized only once and remain in memory throughout the lifetime of the program.</p><p id="0371417e-94e2-4c69-bb9f-27f864734328" class=""><strong>Example:</strong></p><pre id="3d900096-574d-4564-9c64-accb36c69e29" class="code code-wrap"><code>class Counter {
+   public:
+      static int count;
+
+      Counter() {
+         count++;
+      }
+};
+
+int Counter::count = 0; // Initialization of static member
+
+Counter c1;
+Counter c2;
+Counter c3;
+
+cout &lt;&lt; &quot;Number of objects created: &quot; &lt;&lt; Counter::count &lt;&lt; endl; // Accessing static member
+</code></pre><h2 id="a864152d-7368-4410-9e3e-0151e93e9683" class="">Member functions defined outside the class</h2><p id="afae8b4d-1cad-4436-920c-888b7de27c0e" class=""><strong>Q: Can member functions be defined outside the class in programming?</strong></p><p id="19ccacdb-e766-4531-a650-2fee5956da77" class="">A: Yes, member functions can be defined outside the class using the scope resolution operator (::).</p><p id="a43da4ce-0c13-4cb6-aa47-a84182573d3d" class=""><strong>Example:</strong></p><pre id="b289124e-ec80-4a5b-9c63-9a2a7ec1b369" class="code code-wrap"><code>class Rectangle {
+   public:
+      int length;
+      int width;
+
+      int area();
+};
+
+int Rectangle::area() {  // Member function defined outside the class
+   return length * width;
+}
+</code></pre><p id="b233406e-c76b-4074-9bda-0981ad658edc" class="">
+</p></div></article></body></html>

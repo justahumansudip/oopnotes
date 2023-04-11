@@ -1,0 +1,669 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>CHAPTER 2</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9b420ae0-b212-4586-be34-b7256129ca9c" class="page sans"><header><h1 class="page-title">CHAPTER 2</h1></header><div class="page-body"><h3 id="f90f571e-ee35-447e-916e-6f451c7b8482" class="">C++ Program Structure</h3><ol type="1" id="6b301f21-6b76-46f7-aa72-5bb55ef43d3c" class="numbered-list" start="1"><li>What is the basic structure of a C++ program?<ul id="619c0079-f9bd-445d-9554-f476228ef0a0" class="bulleted-list"><li style="list-style-type:disc">The basic structure of a C++ program consists of a header file, a main function, and one or more user-defined functions.</li></ul></li></ol><ol type="1" id="0bf778ed-008d-4ac1-9fea-744305b41dd3" class="numbered-list" start="2"><li>What is the purpose of the header file in a C++ program?<ul id="70593d33-14e2-4bea-9a9b-5376f1145435" class="bulleted-list"><li style="list-style-type:disc">The header file contains declarations of functions, variables, and constants that are used in the program.</li></ul></li></ol><ol type="1" id="03971362-caea-4ca1-835c-2c018b9c6d6d" class="numbered-list" start="3"><li>What is the purpose of the main function in a C++ program?<ul id="8d78274a-6fe5-499e-96ec-37a89964537e" class="bulleted-list"><li style="list-style-type:disc">The main function is the entry point of the program and is responsible for controlling the flow of the program.</li></ul></li></ol><h3 id="1e1a51e0-f1cd-4284-b1d8-7ea8d48300e2" class="">Character Set and Tokens</h3><ol type="1" id="24aa9437-96ce-410d-8ccf-93c8f41bd8ee" class="numbered-list" start="1"><li>What is a character set in C++?<ul id="cf08cd64-fe0a-4ab1-bc9e-aae71e4ca1f4" class="bulleted-list"><li style="list-style-type:disc">A character set is a set of characters that can be used in C++ programs.</li></ul></li></ol><ol type="1" id="2e041a96-7358-42d5-bf07-90423c51aadd" class="numbered-list" start="2"><li>What are tokens in C++?<ul id="499a59b3-9187-4cf8-9c84-dab08cbe8a63" class="bulleted-list"><li style="list-style-type:disc">Tokens are the smallest units of a C++ program and include keywords, identifiers, operators, and literals.</li></ul></li></ol><h3 id="34f556f3-72cf-48cd-9188-cb8d57b9cb1c" class="">Data Type</h3><ol type="1" id="bd83798d-9c92-490a-bede-11c34f3bc355" class="numbered-list" start="1"><li>What is a data type in C++?<ul id="2a93aee7-00b6-476c-a2f2-4e1c2dde3e73" class="bulleted-list"><li style="list-style-type:disc">A data type is a classification of data that determines the type of operations that can be performed on the data.</li></ul></li></ol><ol type="1" id="d5e69522-56c3-4af7-9246-67c0c09c652f" class="numbered-list" start="2"><li>What are the basic data types in C++?<ul id="a0846877-e3c8-4d71-ae49-92314d5b94d8" class="bulleted-list"><li style="list-style-type:disc">The basic data types in C++ include integer, character, boolean, floating-point, and double floating-point.</li></ul></li></ol><ol type="1" id="99627fb8-1de5-475b-9d51-ca6ac7931c3f" class="numbered-list" start="3"><li>What is the size of an integer data type in C++?<ul id="e05944d9-97c2-4381-9714-f1e6f344d322" class="bulleted-list"><li style="list-style-type:disc">The size of an integer data type in C++ depends on the platform and can be either 2 or 4 bytes.</li></ul></li></ol><h3 id="834e8c8b-4269-4232-a5b7-ce3c460f0e98" class="">Type Conversion</h3><ol type="1" id="0bef9794-e724-4c0a-81ed-3cab269af45e" class="numbered-list" start="1"><li>What is type conversion in C++?<ul id="c22a2c39-d8a7-4441-87ab-1d06ae5af35d" class="bulleted-list"><li style="list-style-type:disc">Type conversion is the process of converting a value from one data type to another data type.</li></ul></li></ol><ol type="1" id="85ffb4cc-c823-445c-98fe-d159043c8c09" class="numbered-list" start="2"><li>What is implicit type conversion in C++?<ul id="89e259ad-04f8-420f-8281-d60ba8267719" class="bulleted-list"><li style="list-style-type:disc">Implicit type conversion is the automatic conversion of a value from one data type to another data type without the need for explicit conversion.</li></ul></li></ol><ol type="1" id="99c026bc-fbd2-458b-89e4-afac30db4906" class="numbered-list" start="3"><li>What is explicit type conversion in C++?<ul id="d5b238f6-472a-4411-a9d2-fd1dc5ec8168" class="bulleted-list"><li style="list-style-type:disc">Explicit type conversion is the manual conversion of a value from one data type to another data type using a type cast operator.</li></ul></li></ol><h3 id="b2a802dc-cd4c-457e-9cda-c2750f1c9154" class="">Preprocessor Directives</h3><ol type="1" id="955bcc19-74f1-41e8-88cc-8474b33bed42" class="numbered-list" start="1"><li>What are preprocessor directives in C++?<ul id="331ca690-f019-4dff-8291-a33fd39e8fcb" class="bulleted-list"><li style="list-style-type:disc">Preprocessor directives are statements that are processed by the preprocessor before the compilation of the program.</li></ul></li></ol><ol type="1" id="2411a6d5-dc46-4f62-9f42-c4233b82255b" class="numbered-list" start="2"><li>What is the purpose of the #include directive in C++?<ul id="b4a9a37a-25f0-421d-ad9e-d96640a81b74" class="bulleted-list"><li style="list-style-type:disc">The #include directive is used to include the contents of a header file in the program.</li></ul></li></ol><h3 id="ad58a2df-6084-4d12-b73e-bc28ac6110f2" class="">Namespace</h3><ol type="1" id="b8ccc43f-8eb4-44ce-98e5-7b5d982e8a40" class="numbered-list" start="1"><li>What is a namespace in C++?<ul id="abfc1547-1316-4044-a655-cba65b2eee19" class="bulleted-list"><li style="list-style-type:disc">A namespace is a mechanism for grouping related declarations and preventing naming conflicts.</li></ul></li></ol><ol type="1" id="5cf424b5-ae3e-4115-8eb8-61563b8db8fa" class="numbered-list" start="2"><li>How is a namespace declared in C++?<ul id="0c13f27c-010c-4024-ba69-2f1ba1e5d08b" class="bulleted-list"><li style="list-style-type:disc">A namespace is declared using the namespace keyword followed by the name of the namespace.</li></ul></li></ol><h3 id="e36faa64-bffe-4c0e-950f-4d8b87569532" class="">Input/Output Streams and Manipulators</h3><ol type="1" id="49abfc84-037f-4b6f-9c9a-2dfeb5b626c5" class="numbered-list" start="1"><li>What are input/output streams in C++?<ul id="4281321f-bd91-4cb1-b8a8-1d409f2f18ea" class="bulleted-list"><li style="list-style-type:disc">Input/output streams are used to read input from and write output to external devices such as the console or files.</li></ul></li></ol><ol type="1" id="4043c42b-745e-473a-a3e3-ebccef7e6af7" class="numbered-list" start="2"><li>What are manipulators in C++?<ul id="6744b807-2ec8-4044-8d96-ec036f8caab8" class="bulleted-list"><li style="list-style-type:disc">Manipulators are special functions that are used to modify the behavior of input/output streams.</li></ul></li></ol><h3 id="f07622bd-7b37-4205-b769-5d1b8ea7ceda" class="">Dynamic Memory Allocation with new and delete</h3><ol type="1" id="0d825269-2077-4c4b-a576-722df97d8f0d" class="numbered-list" start="1"><li>What is dynamic memory allocation in C++?<ul id="aed2a6a8-5625-4446-b0ec-81f5b2dde154" class="bulleted-list"><li style="list-style-type:disc">Dynamic memory allocation is the process of allocating memory at runtime.</li></ul></li></ol><ol type="1" id="aec501aa-bd9d-49de-b4a4-a8caec0bbc95" class="numbered-list" start="2"><li>How is dynamic memory allocated in C++?<ul id="04488621-c199-4fe4-951e-41053172c564" class="bulleted-list"><li style="list-style-type:disc">Dynamic memory is allocated using the new operator and deallocated using the delete operator.</li></ul></li></ol><h3 id="b4ac8c71-1844-4614-a1a4-7c12ac96ebad" class="">Control Statements</h3><ol type="1" id="c6e289dd-db72-489b-8278-9f3841ab2e5d" class="numbered-list" start="1"><li>What are control statements in C++?<ul id="bcba4b40-d3ae-4f07-a8ab-e6b4d22d9785" class="bulleted-list"><li style="list-style-type:disc">Control statements are used to control the flow of a program.</li></ul></li></ol><ol type="1" id="21e469c4-0efa-4efc-81c6-31cb91b6c5bf" class="numbered-list" start="2"><li>What are the types of control statements in C++?<ul id="0d03323b-c361-47f1-b6a1-7f412db9a8c5" class="bulleted-list"><li style="list-style-type:disc">The types of control statements in C++ include if-else, switch, while, do-while, and for.</li></ul></li></ol><h3 id="5f720fbb-76b5-40c7-8148-5939ff0f072d" class="">Functions</h3><ol type="1" id="9fb78d76-d0f2-46e6-9126-6bf2343f21b5" class="numbered-list" start="1"><li>What is a function in C++?<ul id="4a07f4e6-76e3-43d9-b142-430f08b59bd8" class="bulleted-list"><li style="list-style-type:disc">A function is a block of code that performs a specific task.</li></ul></li></ol><ol type="1" id="e9d115a0-77bd-4898-bd8b-c09fcaf12492" class="numbered-list" start="2"><li>What is function overloading in C++?<ul id="ecfad189-a66c-4fe8-9f51-06569c5c0bf8" class="bulleted-list"><li style="list-style-type:disc">Function overloading is the process of defining multiple functions with the same name but different parameters.</li></ul></li></ol><ol type="1" id="665dd844-954a-42c1-b8e1-4ee42a2c80fd" class="numbered-list" start="3"><li>What are inline functions in C++?<ul id="301d6424-292c-4fbb-a121-a8ebd5145fbf" class="bulleted-list"><li style="list-style-type:disc">Inline functions are functions that are expanded by the compiler at the point of function call.</li></ul></li></ol><ol type="1" id="eb36e7a6-78e4-4f7c-baa5-da1478fc4906" class="numbered-list" start="4"><li>What are default arguments in C++?<ul id="74ceefcd-b70f-42a7-a498-f02163676c38" class="bulleted-list"><li style="list-style-type:disc">Default arguments are values that are automatically assigned to function parameters if no argument is provided.</li></ul></li></ol><ol type="1" id="a0320736-4296-41fa-a4bc-9b58198c2975" class="numbered-list" start="5"><li>What is pass by reference in C++?<ul id="63f3a69e-6b71-44e0-8619-e29f4cb0ad55" class="bulleted-list"><li style="list-style-type:disc">Pass by reference is a method of passing arguments to a function by reference instead of by value.</li></ul></li></ol><ol type="1" id="0bd8cbb0-df19-4851-8ad9-ddca473cc1c6" class="numbered-list" start="6"><li>What is return by reference in C++?<ul id="d08aeca7-04c9-498f-8b67-65aa1c273489" class="bulleted-list"><li style="list-style-type:disc">Return by reference is a method of returning values from a function by reference instead of by value.</li></ul></li></ol><ol type="1" id="b3db17c6-f001-4aad-ba27-97dec6e1abe1" class="numbered-list" start="7"><li>What is scope in C++?<ul id="41637110-582f-40b7-bcb6-3d7d6a7a1e2a" class="bulleted-list"><li style="list-style-type:disc">Scope is the region of the program where a variable can be accessed.</li></ul></li></ol><ol type="1" id="24cd62a5-1514-4ef9-a63c-6bce2f1dca3f" class="numbered-list" start="8"><li>What are storage classes in C++?<ul id="0c8038f2-9ca2-4889-8710-aebe1770d3ff" class="bulleted-list"><li style="list-style-type:disc">Storage classes are used to specify the lifetime and scope of variables.</li></ul></li></ol><h3 id="c59a977a-0aa3-4d0a-a1ce-23dba197c87d" class="">Pointers</h3><ol type="1" id="136e8abd-8315-4c16-b219-df8a65647e21" class="numbered-list" start="1"><li>What is a pointer in C++?<ul id="2c57f845-b32d-490f-a057-ed544499d295" class="bulleted-list"><li style="list-style-type:disc">A pointer is a variable that stores the memory address of another variable.</li></ul></li></ol><ol type="1" id="83b9c210-a74e-4f92-86a3-4fe9eb813416" class="numbered-list" start="2"><li>How is a pointer variable declared and initialized in C++?<ul id="64860b58-8466-41f9-9d80-1d510c6d8717" class="bulleted-list"><li style="list-style-type:disc">A pointer variable is declared using the * operator and can be initialized with the address of another variable.</li></ul></li></ol><ol type="1" id="e34d4ac0-9d42-451c-bac5-c364e9acc0a4" class="numbered-list" start="3"><li>What are the operators used with pointers in C++?<ul id="88ab95fd-b091-4331-96c8-a0c4825303ab" class="bulleted-list"><li style="list-style-type:disc">The operators used with pointers in C++ include the dereference operator (*), the address-of operator (&amp;), and the pointer arithmetic operators (+ and -).</li></ul></li></ol><ol type="1" id="11f88a45-d561-47e2-9e08-f36a33d02938" class="numbered-list" start="4"><li>What is the relationship between pointers and arrays in C++?<ul id="7855d002-aaaa-43ea-aedd-eb8aaac3a156" class="bulleted-list"><li style="list-style-type:disc">Pointers and arrays are closely related in C++, and arrays can be accessed using pointer arithmetic.</li></ul></li></ol><ol type="1" id="c3286107-f022-4a6b-b901-3ee63682ab67" class="numbered-list" start="5"><li>How are pointers used with functions in C++?<ul id="1726dfa9-6bfc-4e84-8b54-80df35923e80" class="bulleted-list"><li style="list-style-type:disc">Pointers are often used with functions in C++ to pass arguments by reference and to return values by reference.</li></ul></li></ol></div></article></body></html>

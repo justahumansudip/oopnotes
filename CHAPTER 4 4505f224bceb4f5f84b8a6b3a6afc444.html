@@ -1,0 +1,919 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>CHAPTER 4</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="4505f224-bceb-4f5f-84b8-a6b3a6afc444" class="page sans"><header><h1 class="page-title">CHAPTER 4</h1></header><div class="page-body"><h1 id="e0facdf0-c1de-488a-bdc4-6f7a3552c065" class="">CHAPTER 4</h1><h2 id="000ab97b-eda1-4e16-8998-c99bf75c80ed" class="">Fundamental of Operator Overloading</h2><h3 id="df65e1a9-8df3-42cb-91ec-1decaff67933" class="">Q: What is operator overloading?</h3><p id="643cca48-5875-4f3e-a0ed-ea52fe72b827" class="">A: Operator overloading is a feature in C++ that allows operators such as +, -, *, /, etc. to have different meanings when applied to user-defined data types.</p><h3 id="d5a5c56a-5b4a-4e00-9d42-cfadf02fa3d4" class="">Q: How is operator overloading done?</h3><p id="1e0cd58f-dcc7-4cb9-8e3d-5c1ecdf806c2" class="">A: Operator overloading is done by defining a special function called operator function.</p><h3 id="7f3ff00a-7ab9-4e67-8bf9-1183d25d6915" class="">Program example:</h3><pre id="0e6ebf6a-6781-487a-8baf-3ee9713d926b" class="code code-wrap"><code>#include&lt;iostream&gt;
+using namespace std;
+class Complex {
+   private:
+      int real, imag;
+   public:
+      Complex(int r = 0, int i =0) {
+         real = r;   imag = i;
+      }
+      Complex operator + (Complex const &amp;obj) {
+         Complex res;
+         res.real = real + obj.real;
+         res.imag = imag + obj.imag;
+         return res;
+      }
+      void print() {
+         cout &lt;&lt; real &lt;&lt; &quot; + i&quot; &lt;&lt; imag &lt;&lt; endl;
+      }
+};
+int main() {
+   Complex c1(10, 5), c2(2, 4);
+   Complex c3 = c1 + c2;
+   c3.print();
+}
+</code></pre><h2 id="88ea3b92-7e45-4fed-808b-ae1a3fbd8456" class="">Restriction on Operator Overloading</h2><h3 id="8201c931-0c1b-4554-80fa-fdb7678955a0" class="">Q: What are the restrictions on operator overloading?</h3><p id="ef6de089-c99f-4d73-bd20-da55d4d53408" class="">A: The restrictions on operator overloading are:</p><ul id="56c2055c-fe14-4b73-a71f-c77df3d7cfe8" class="bulleted-list"><li style="list-style-type:disc">The overloaded operator must have at least one operand that is of user-defined data type.</li></ul><ul id="077b0b71-1195-42ec-b88f-846747609a4e" class="bulleted-list"><li style="list-style-type:disc">The overloaded operator cannot change the number of operands.</li></ul><ul id="1805783e-632d-4f56-a9d1-b0d67759a559" class="bulleted-list"><li style="list-style-type:disc">The overloaded operator cannot change the precedence of the operator.</li></ul><h3 id="7012893c-5c9f-4e86-853b-a0225ce2c562" class="">Program example:</h3><pre id="7110ae1d-95f5-4915-b231-7b84ace11563" class="code code-wrap"><code>#include&lt;iostream&gt;
+using namespace std;
+class Count {
+   private:
+      int value;
+   public:
+      Count(int v = 0) { value = v; }
+      void operator ++ () { ++value; }
+      void display() { cout&lt;&lt; &quot;Count: &quot; &lt;&lt; value &lt;&lt; endl; }
+};
+int main() {
+   Count c1(5);
+   ++c1;
+   c1.display();
+   ++(++c1);
+   c1.display();
+   return 0;
+}
+</code></pre><h2 id="4e14571b-87f6-40da-8a61-9324483e9c1d" class="">Operator Functions as a Class Members</h2><h3 id="6493a058-6dbd-4b2b-910b-b4e503f2ce14" class="">Q: What are operator functions as class members?</h3><p id="9f1b65db-d084-49d2-9e9b-7db5a0e99a9c" class="">A: Operator functions as class members are the functions that are declared inside the class and are used to overload operators.</p><h3 id="dfbd7ff9-17b4-44bc-8bd8-df7c8a4cc4fb" class="">Program example:</h3><pre id="05c0095d-3352-40ab-86be-a9b844d462ff" class="code code-wrap"><code>#include&lt;iostream&gt;
+using namespace std;
+class Distance {
+   private:
+      int feet;
+      int inches;
+   public:
+      Distance() {
+         feet = 0;
+         inches = 0;
+      }
+      Distance(int f, int i) {
+         feet = f;
+         inches = i;
+      }
+      void operator = (const Distance &amp;d) {
+         feet = d.feet;
+         inches = d.inches;
+      }
+      void display() {
+         cout &lt;&lt; &quot;Feet: &quot; &lt;&lt; feet &lt;&lt; &quot;, Inches: &quot; &lt;&lt; inches &lt;&lt; endl;
+      }
+};
+int main() {
+   Distance d1(11, 10), d2(5, 11);
+   d1.display();
+   d2.display();
+   d1 = d2;
+   d1.display();
+   return 0;
+}
+</code></pre><h2 id="ceebd8cf-b036-4e4f-92dc-98d53722f571" class="">Overloading Unary and Binary Operator</h2><h3 id="2b18c345-8119-4dc1-a4ff-1cf41fbbe5b1" class="">Q: What is the difference between unary and binary operators?</h3><p id="32aa0b10-ed18-409f-a7eb-754a4b2d9fb2" class="">A: Unary operators are operators that operate on a single operand while binary operators are operators that operate on two operands.</p><h3 id="46fe0f8c-5ded-4f02-adaf-a1c5abfa6bf0" class="">Program example:</h3><pre id="f506f1e3-08ad-4888-8e0a-5f03c05ca725" class="code code-wrap"><code>#include&lt;iostream&gt;
+using namespace std;
+class Complex {
+   private:
+      int real, imag;
+   public:
+      Complex(int r = 0, int i =0) {
+         real = r;   imag = i;
+      }
+      Complex operator - () {
+         Complex temp;
+         temp.real = -real;
+         temp.imag = -imag;
+         return temp;
+      }
+      Complex operator + (Complex const &amp;obj) {
+         Complex res;
+         res.real = real + obj.real;
+         res.imag = imag + obj.imag;
+         return res;
+      }
+      void print() {
+         cout &lt;&lt; real &lt;&lt; &quot; + i&quot; &lt;&lt; imag &lt;&lt; endl;
+      }
+};
+int main() {
+   Complex c1(10, 5), c2(2, 4);
+   Complex c3 = -c1;
+   c3.print();
+   Complex c4 = c1 + c2;
+   c4.print();
+   return 0;
+}
+</code></pre><h2 id="6b202b8f-2e12-4888-9c7d-f1202076adad" class="">Data Conversion</h2><h3 id="78bcfecc-159d-4c56-8ec0-378d45373c8f" class="">Q: What is data conversion?</h3><p id="234e8683-f2a8-4e9a-ba6a-e7ff7c5f8186" class="">A: Data conversion is the process of converting one data type to another.</p><h3 id="13a4bd79-c169-4d82-988c-852825c41357" class="">Q: What are the types of data conversion?</h3><p id="1b11525b-b871-4878-ae2d-9565bd67094e" class="">A: The types of data conversion are:</p><ul id="af444174-a91b-4307-a078-7872a262784f" class="bulleted-list"><li style="list-style-type:disc">Basic to Basic</li></ul><ul id="f427b17a-4a3b-4cfa-b093-a36343e65539" class="bulleted-list"><li style="list-style-type:disc">Basic to User-defined</li></ul><ul id="1ede5149-a431-4f6b-bbd0-f456c31a57a4" class="bulleted-list"><li style="list-style-type:disc">User-defined to Basic</li></ul><ul id="4e81bca5-dc89-46ca-86f5-bae64d155dd4" class="bulleted-list"><li style="list-style-type:disc">User-defined to User-defined</li></ul><h3 id="4c590544-5944-43e0-9d14-f62c4095f61c" class="">Program example:</h3><pre id="5e0f4977-c2b4-476a-8397-e7ccbfa68540" class="code code-wrap"><code>#include&lt;iostream&gt;
+using namespace std;
+class Distance {
+   private:
+      int feet;
+      int inches;
+   public:
+      Distance() {
+         feet = 0;
+         inches = 0;
+      }
+      Distance(int f, int i) {
+         feet = f;
+         inches = i;
+      }
+      operator int() {
+         return feet;
+      }
+};
+int main() {
+   Distance d1(11, 10);
+   int feet = d1;
+   cout &lt;&lt; &quot;Feet: &quot; &lt;&lt; feet &lt;&lt; endl;
+   return 0;
+}
+</code></pre><p id="9aeef9f1-ab59-43dc-a476-808ca5be17e9" class="">
+</p><h3 id="956be0c3-83f5-422f-a14a-e12682e607b2" class="">Basic to Basic</h3><pre id="3064415a-204b-4a3b-a3c2-dbc9600011cc" class="code code-wrap"><code>#include&lt;iostream&gt;
+using namespace std;
+int main(){
+    int x = 10;
+    double y = x; // basic to basic conversion
+    cout &lt;&lt; &quot;x: &quot; &lt;&lt; x &lt;&lt; endl;
+    cout &lt;&lt; &quot;y: &quot; &lt;&lt; y &lt;&lt; endl;
+    return 0;
+}
+</code></pre><h3 id="fe47d1f0-b3a9-4b35-be28-d912b5495c3a" class="">Basic to User-defined</h3><pre id="6310f1aa-6251-46b9-b5a9-05f5ea085248" class="code code-wrap"><code>#include&lt;iostream&gt;
+using namespace std;
+class Distance {
+   private:
+      int feet;
+      int inches;
+   public:
+      Distance() {
+         feet = 0;
+         inches = 0;
+      }
+      Distance(int f, int i) {
+         feet = f;
+         inches = i;
+      }
+      void display() {
+         cout &lt;&lt; &quot;Feet: &quot; &lt;&lt; feet &lt;&lt; &quot;, Inches: &quot; &lt;&lt; inches &lt;&lt; endl;
+      }
+      operator double() {
+         double total = feet + (double)inches/12;
+         return total;
+      }
+};
+int main() {
+   Distance d1(11, 10);
+   double total = d1; // basic to user-defined conversion
+   cout &lt;&lt; &quot;Total feet: &quot; &lt;&lt; total &lt;&lt; endl;
+   return 0;
+}
+</code></pre><h3 id="e2b3a7df-090c-426d-bb4d-9f65e694bbca" class="">User-defined to Basic</h3><pre id="5ae27a33-b254-4a0a-9073-b5c5915e0053" class="code code-wrap"><code>#include&lt;iostream&gt;
+using namespace std;
+class Distance {
+   private:
+      int feet;
+      int inches;
+   public:
+      Distance() {
+         feet = 0;
+         inches = 0;
+      }
+      Distance(int f, int i) {
+         feet = f;
+         inches = i;
+      }
+      void display() {
+         cout &lt;&lt; &quot;Feet: &quot; &lt;&lt; feet &lt;&lt; &quot;, Inches: &quot; &lt;&lt; inches &lt;&lt; endl;
+      }
+      operator int() {
+         int total = feet*12 + inches;
+         return total;
+      }
+};
+int main() {
+   Distance d1(11, 10);
+   int total = d1; // user-defined to basic conversion
+   cout &lt;&lt; &quot;Total inches: &quot; &lt;&lt; total &lt;&lt; endl;
+   return 0;
+}
+</code></pre><h3 id="63b9dba6-7110-4c0d-8eaa-7d07c9e507f9" class="">User-defined to User-defined</h3><pre id="00ec5d96-4788-43b1-bcf4-fe5655fe1a31" class="code code-wrap"><code>#include&lt;iostream&gt;
+using namespace std;
+class Distance {
+   private:
+      int feet;
+      int inches;
+   public:
+      Distance() {
+         feet = 0;
+         inches = 0;
+      }
+      Distance(int f, int i) {
+         feet = f;
+         inches = i;
+      }
+      void display() {
+         cout &lt;&lt; &quot;Feet: &quot; &lt;&lt; feet &lt;&lt; &quot;, Inches: &quot; &lt;&lt; inches &lt;&lt; endl;
+      }
+      operator int() {
+         int total = feet*12 + inches;
+         return total;
+      }
+};
+class Area {
+   private:
+      Distance d1;
+      Distance d2;
+   public:
+      Area() {
+         d1 = Distance(0, 0);
+         d2 = Distance(0, 0);
+      }
+      Area(Distance x, Distance y) {
+         d1 = x;
+         d2 = y;
+      }
+      void display() {
+         cout &lt;&lt; &quot;Distance 1: &quot;;
+         d1.display();
+         cout &lt;&lt; &quot;Distance 2: &quot;;
+         d2.display();
+         int total = d1 + d2; // user-defined to user-defined conversion
+         cout &lt;&lt; &quot;Total inches: &quot; &lt;&lt; total &lt;&lt; endl;
+      }
+};
+int main() {
+   Distance d1(11, 10), d2(5, 11);
+   Area a1(d1, d2);
+   a1.display();
+   return 0;
+}
+</code></pre></div></article></body></html>
